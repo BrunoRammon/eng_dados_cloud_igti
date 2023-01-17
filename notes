@@ -1,0 +1,68 @@
+IaaS - infraestrutura como serviço
+PaaS - plataforma como serviço
+SaaS - software como serviço
+
+1) Well architected framework
+ - Projeto de infraestrutura
+-Pilares
+1.1) Execelência operacional
+   - Executar operações como código: automatizar processos
+   - documentação
+1.2) Segurança
+1.3) Confiabilidade
+   - Recuperação de falhas de forma rápida e automatizada
+   - parar de tentar adivinhar a capacidade e ter uma estrutura elástica
+1.4) Eficiência de performance
+   - manter desempenho ao longo do tempo com os avanços da tecnologia
+1.5) Otimização de custos
+   - agregar valor pelo menor preço
+2) Modelos de Arquiteturas de Dados em Nuvem
+2.1) Databases gerenciados - Relacional
+    - AWS: RDS (Relational Database Service)
+        - DW: Redshift
+    - Google: Bare Metal, Cloud SQl, Cloud Spanner
+        - DW: Big Query
+    - Azure: 
+2.2) Databases gerenciados - não relacional
+    - AWS: DynamoDB (chave-valor), DocumentDB (documentos), Neptune (grafo), Elasticache (em memória), ElasticSearch (pesquisa)
+    - Google: BigTable (chave-valor), Filestore e Firebase (documentos), Memorystore (em memória)
+    - Azure: CosmosDB (chave-valor,documentos e grafos), cache (em memória), elastic (pesquisa)
+2.3) DataLake: desenho de arquitetura
+    - Arquitetura lambda: duas camada: batch layer e speed layer (streming, real-time). Outra camada é a serving layer em que os dados são para consumo
+    - Arquitetura kappa: única camada de processamento rápido que serve a camada de data storage (serving layer)
+    - Arquitetura unifield: similar a arquitetura lambda mas inclue processos e modelos de ML e IA
+    - Arquitetura Lakehouse: datawarehouse (apenas dados estruturados) => data lake (dados estruturados, semi ou não) => lakehouse (engines de data-lake, deltalake (controle de versão de dados))
+2.4) DataLake: armazenamento S3
+    - S3 para datalake: serviço de armazenamento de objetos
+    - arquivos ficam em buckets
+    - os buckets ficam em região (dentro de regiões estão as zonas de disponibilidade que é um datacenter físico). Os buckets são armazenados e replicados em todos os  
+      datacenters (zonas de disponibilidade de uma região)
+    - pay-as-you-go
+    - não se paga para colocar dados do S3 para instâncias EC2 na mesma região, logo é importante colocar as instâncias na mesma região do datalake
+2.5) Data Lake - Ingestão de dados
+    - Tipos de ingestão
+        - em batch: uma única vez, substituição programada, incremental, near-real-time.
+            - ferramentas: spark, python, apache Nifi. Em real time: kafka            
+    - fontes: tabelas de dados relacionais ou NoSQl,APIs,arquivos em file system externo
+2.6) Data Lake - processamento de bigdata
+    - Ferrramentas: apache spark(batch e real time) e ksqlDB(kafka real time)
+2.7) Data Lake - Consumo de Dados - DW e Engines
+    - Engines de consulta gerenciadas: amazon athena
+4.1)IaaC
+    - toda a infraestrutura resolvida como código 
+4.2) Terraform - Uso básico
+    -     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
