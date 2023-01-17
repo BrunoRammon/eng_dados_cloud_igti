@@ -6,8 +6,10 @@ variable "ambiente" {
   default = "producao"
 }
 
-
 variable "numero_conta" {
   default = "495874896215"
 }
 
+variable "region" {
+  default = "us-east-2"
+}

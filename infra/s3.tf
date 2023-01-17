@@ -23,22 +23,3 @@ resource "aws_s3_bucket_acl" "datalake_acl_conf" {
   bucket = aws_s3_bucket.datalake.id
   acl    = "private"
 }
-
-# resource "aws_s3_bucket_object" "notes" {
-#   bucket = aws_s3_bucket.datalake.id
-#   key    = "general/notes"
-#   acl    = "private"
-#   source = "../notes"
-#   etag   = filemd5("../notes")
-# }
-
-resource "aws_s3_object" "notes" {
-  bucket = aws_s3_bucket.datalake.id
-  key    = "general/notes"
-  source = "../notes"
-  etag   = filemd5("../notes")
-}
-
-provider "aws" {
-  region = "aws-east-1"
-}
